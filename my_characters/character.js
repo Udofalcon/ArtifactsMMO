@@ -24,7 +24,7 @@ class Characters {
 
             return this.characters;
         } catch (error) {
-            console.error('Get Server Details', error);
+            console.error('Get My Characters', error);
         }
     }
 }
