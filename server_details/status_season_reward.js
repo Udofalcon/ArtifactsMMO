@@ -28,7 +28,7 @@ class StatusSeasonReward {
     isValid() {
         const validType = [ 'badge', 'skin', 'gold', 'item' ];
 
-        return valid.includes(type);
+        return valid.includes(this.type);
     }
 }
 
