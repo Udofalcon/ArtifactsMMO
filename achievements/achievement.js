@@ -30,6 +30,22 @@ class Achievements {
         }
     }
 
+    async GetAchievement({ code }) {
+        const url = `https://api.artifactsmmo.com/achievements/${code}`;
+        const headers = {
+            Accept: 'application/json',
+        };
+
+        try {
+            const response = await fetch(url, { method: 'GET', headers });
+            const { data } = await response.json();
+
+            return new Achievement(data);
+        } catch (error) {
+            console.error('Get Achievement', error);
+        }
+    }
+
     isValidTotal() {
         return this.total >= 0;
     }
@@ -72,10 +88,6 @@ class Achievement {
         });
         this.rewards = new AchievementRewards(rewards);
     }
-
-    async GetAchievement(code) {
-
-    }
 }
 
-module.exports = { Achievements, Achievement };
+module.exports = Achievements;
