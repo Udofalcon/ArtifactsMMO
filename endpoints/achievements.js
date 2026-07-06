@@ -1,6 +1,7 @@
 const AchievementSchema = require('../schemas/achievements/achievement');
 
 class Achievements {
+    // https://api.artifactsmmo.com/docs/#/operations/get_all_achievements_achievements_get
     async GetAchievements({
         page = 1,
         size = 50,
@@ -36,6 +37,7 @@ class Achievements {
         }
     }
 
+    // https://api.artifactsmmo.com/docs/#/operations/get_achievement_achievements__code__get
     async GetAchievement({
         code
     }) {
