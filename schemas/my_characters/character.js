@@ -1,35 +1,7 @@
-const StorageEffect = require('./storage_effect');
-const InventorySlot = require('./inventory_slot');
+const StorageEffectSchema = require('./storage_effect');
+const InventorySlotSchema = require('./inventory_slot');
 
-// https://api.artifactsmmo.com/docs/#/operations/get_my_characters_my_characters_get
-class Characters {
-    characters;
-
-    async GetMyCharacters() {
-        const url = `https://api.artifactsmmo.com/my/characters`;
-        const headers = {
-            Accept: 'application/json',
-            Authorization: `Bearer ${process.env.API_TOKEN}`,
-        };
-
-        try {
-            const response = await fetch(url, { method: 'GET', headers });
-            const { data } = await response.json();
-
-            this.characters = [];
-
-            for (let i = 0; i < data.length; i++) {
-                this.characters[i] = new Character(data[i]);
-            }
-
-            return this.characters;
-        } catch (error) {
-            console.error('Get My Characters', error);
-        }
-    }
-}
-
-class Character {
+class CharacterSchema {
     name;
     account;
     skin;
@@ -255,7 +227,7 @@ class Character {
         this.res_water = res_water;
         this.res_air = res_air;
         this.effects = effects.map(x => {
-            return new StorageEffect(x);
+            return new StorageEffectSchema(x);
         });
         this.x = x;
         this.y = y;
@@ -287,9 +259,9 @@ class Character {
         this.task_total = task_total;
         this.inventory_max_items = inventory_max_items;
         this.inventory = inventory.map(x => {
-            return new InventorySlot(x);
+            return new InventorySlotSchema(x);
         });
     }
 }
 
-module.exports = Characters;
+module.exports = CharacterSchema;

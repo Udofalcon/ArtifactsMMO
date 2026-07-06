@@ -1,14 +1,14 @@
 const ServerDetails = require('./endpoints/server_details');
-// const Characters = require('./my_characters/character');
+const MyCharacters = require('./endpoints/my_characters');
 // const Achievements = require('./achievements/achievement');
 // const Maps = require('./maps/map');
 
 async function main() {
-    let server_details = await new ServerDetails().GetServerDetails();
-    console.log(server_details);
+    // let server_details = await new ServerDetails().GetServerDetails();
+    // console.log(server_details);
 
-    // let characters = await new Characters().GetMyCharacters();
-    // console.log(characters[0]);
+    let characters = await new MyCharacters().GetMyCharacters();
+    console.log(characters[0]);
 
     // let achievements = await new Achievements().GetAchievements({ size: 10000 });
     // console.log(achievements[0]);

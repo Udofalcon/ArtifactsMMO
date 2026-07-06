@@ -1,4 +1,4 @@
-class StorageEffect {
+class StorageEffectSchema {
     code;
     value;
 
@@ -8,4 +8,4 @@ class StorageEffect {
     }
 }
 
-module.exports = StorageEffect;
+module.exports = StorageEffectSchema;

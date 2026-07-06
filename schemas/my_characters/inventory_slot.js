@@ -1,4 +1,4 @@
-class InventorySlot {
+class InventorySlotSchema {
     slot;
     code;
     quantity;
@@ -10,4 +10,4 @@ class InventorySlot {
     }
 }
 
-module.exports = InventorySlot;
+module.exports = InventorySlotSchema;
