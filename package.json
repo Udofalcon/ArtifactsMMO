@@ -7,6 +7,6 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "game": "node --env-file=.env automate.js"
+    "main": "node --env-file=.env main.js"
   }
 }

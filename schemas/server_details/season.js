@@ -1,6 +1,6 @@
-const StatusSeasonReward = require('./status_season_reward');
+const StatusSeasonRewardSchema = require('./status_season_reward');
 
-class Season {
+class SeasonSchema {
     name; // Optional
     number; // Optional
     start_date; // Optional
@@ -16,9 +16,9 @@ class Season {
         this.number = number;
         this.start_date = start_date;
         this.rewards = rewards.map(x => {
-            return new StatusSeasonReward(x);
+            return new StatusSeasonRewardSchema(x);
         });
     }
 }
 
-module.exports = Season;
+module.exports = SeasonSchema;

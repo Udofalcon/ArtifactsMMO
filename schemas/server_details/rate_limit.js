@@ -1,4 +1,4 @@
-class RateLimit {
+class RateLimitSchema {
     type;
     value;
 
@@ -11,4 +11,4 @@ class RateLimit {
     }
 }
 
-module.exports = RateLimit;
+module.exports = RateLimitSchema;

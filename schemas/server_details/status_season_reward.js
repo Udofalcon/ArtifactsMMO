@@ -1,4 +1,4 @@
-class StatusSeasonReward {
+class StatusSeasonRewardSchema {
     code;
     type;
     description;
@@ -32,4 +32,4 @@ class StatusSeasonReward {
     }
 }
 
-module.exports = StatusSeasonReward;
+module.exports = StatusSeasonRewardSchema;
