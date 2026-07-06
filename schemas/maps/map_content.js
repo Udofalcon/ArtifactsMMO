@@ -1,4 +1,4 @@
-class MapContent {
+class MapContentSchema {
     type;
     code;
 
@@ -17,4 +17,4 @@ class MapContent {
     }
 }
 
-module.exports = MapContent;
+module.exports = MapContentSchema;

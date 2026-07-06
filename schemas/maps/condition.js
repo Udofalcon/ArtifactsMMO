@@ -1,4 +1,4 @@
-class Condition {
+class ConditionSchema {
     code;
     operator;
     value;
@@ -20,4 +20,4 @@ class Condition {
     }
 }
 
-module.exports = Condition;
+module.exports = ConditionSchema;

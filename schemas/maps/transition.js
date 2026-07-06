@@ -1,6 +1,6 @@
-const Condition = require('./condition');
+const ConditionSchema = require('./condition');
 
-class Transition {
+class TransitionSchema {
     map_id;
     x;
     y;
@@ -19,7 +19,7 @@ class Transition {
         this.y = y;
         this.layer = layer;
         this.conditions = conditions?.map(x => {
-            return new Condition(x);
+            return new ConditionSchema(x);
         }) || null;
     }
 
@@ -30,4 +30,4 @@ class Transition {
     }
 }
 
-module.exports = Transition;
+module.exports = TransitionSchema;

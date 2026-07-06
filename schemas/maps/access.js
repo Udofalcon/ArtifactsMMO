@@ -1,6 +1,6 @@
-const Condition = require('./condition');
+const ConditionSchema = require('./condition');
 
-class Access {
+class AccessSchema {
     type;
     conditions;
 
@@ -10,7 +10,7 @@ class Access {
     }) {
         this.type = type;
         this.conditions = conditions?.map(x => {
-            return new Condition(x)
+            return new ConditionSchema(x)
         }) || null;
     }
 
@@ -21,4 +21,4 @@ class Access {
     }
 }
 
-module.exports = Access;
+module.exports = AccessSchema;
