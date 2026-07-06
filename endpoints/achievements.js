@@ -16,7 +16,7 @@ class Achievements {
                 `page=${page}`,
                 `size=${size}`,
                 type !== undefined ? `type=${type}` : ''
-            ];
+            ].filter(x => x);
             const url = `https://api.artifactsmmo.com/achievements?${args.join('&')}`;
             const headers = {
                 Accept: 'application/json',
