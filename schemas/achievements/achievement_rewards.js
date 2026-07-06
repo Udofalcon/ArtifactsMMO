@@ -1,6 +1,6 @@
-const RewardItem = require('./reward_item');
+const RewardItemSchema = require('./reward_item');
 
-class AchievementRewards {
+class AchievementRewardsSchema {
     gold;
     items;
 
@@ -10,9 +10,9 @@ class AchievementRewards {
     }) {
         this.gold = gold;
         this.items = items?.map(x => {
-            return new RewardItem(x);
+            return new RewardItemSchema(x);
         }) || null;
     }
 }
 
-module.exports = AchievementRewards;
+module.exports = AchievementRewardsSchema;

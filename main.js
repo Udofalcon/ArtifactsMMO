@@ -1,19 +1,19 @@
 const ServerDetails = require('./endpoints/server_details');
 const MyCharacters = require('./endpoints/my_characters');
-// const Achievements = require('./achievements/achievement');
+const Achievements = require('./endpoints/achievements');
 // const Maps = require('./maps/map');
 
 async function main() {
     // let server_details = await new ServerDetails().GetServerDetails();
     // console.log(server_details);
 
-    let characters = await new MyCharacters().GetMyCharacters();
-    console.log(characters[0]);
+    // let characters = await new MyCharacters().GetMyCharacters();
+    // console.log(characters[0]);
 
     // let achievements = await new Achievements().GetAchievements({ size: 10000 });
-    // console.log(achievements[0]);
-    // let achievement = await new Achievements().GetAchievement({ code: 'professional_lumberjack' });
-    // console.log(achievement);
+    // console.log(achievements);
+    let achievement = await new Achievements().GetAchievement({ code: 'professional_lumberjack' });
+    console.log(achievement);
 
     // let maps = await new Maps().GetAllMaps();
     // console.log(maps.filter(x => x.access.type !== 'blocked'));

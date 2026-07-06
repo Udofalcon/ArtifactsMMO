@@ -1,4 +1,4 @@
-class AchievementObjective {
+class AchievementObjectiveSchema {
     type;
     target;
     total;
@@ -20,4 +20,4 @@ class AchievementObjective {
     }
 }
 
-module.exports = AchievementObjective;
+module.exports = AchievementObjectiveSchema;

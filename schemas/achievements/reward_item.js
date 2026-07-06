@@ -1,4 +1,4 @@
-class RewardItem {
+class RewardItemSchema {
     code;
     quantity;
 
@@ -11,4 +11,4 @@ class RewardItem {
     }
 }
 
-module.exports = RewardItem;
+module.exports = RewardItemSchema;
