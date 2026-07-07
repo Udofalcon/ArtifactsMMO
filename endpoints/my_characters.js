@@ -2,7 +2,7 @@ const CharacterSchema = require('../schemas/my_characters/character');
 
 class MyCharacters {
     // https://api.artifactsmmo.com/docs/#/operations/get_my_characters_my_characters_get
-    async GetMyCharacters() {
+    static async GetMyCharacters() {
         try {
             const url = `https://api.artifactsmmo.com/my/characters`;
             const headers = {

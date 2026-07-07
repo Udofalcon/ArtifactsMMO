@@ -2,15 +2,15 @@ const AchievementSchema = require('../schemas/achievements/achievement');
 
 class Achievements {
     // https://api.artifactsmmo.com/docs/#/operations/get_all_achievements_achievements_get
-    async GetAchievements({
+    static async GetAchievements({
         page = 1,
         size = 50,
         type
     }) {
         try {
-            if (!this.isValidPage(page)) throw Error(`Page Error`);
-            if (!this.isValidSize(size)) throw Error(`Size Error`);
-            if (!this.isValidType(type)) throw Error(`Type Error`);
+            if (!this.#isValidPage(page)) throw Error(`Page Error`);
+            if (!this.#isValidSize(size)) throw Error(`Size Error`);
+            if (!this.#isValidType(type)) throw Error(`Type Error`);
 
             const args = [
                 `page=${page}`,
@@ -38,11 +38,9 @@ class Achievements {
     }
 
     // https://api.artifactsmmo.com/docs/#/operations/get_achievement_achievements__code__get
-    async GetAchievement({
-        code
-    }) {
+    static async GetAchievement(code) {
         try {
-            if (!this.isValidCode(code)) throw Error(`Code Error`);
+            if (code === undefined || !this.#isValidCode(code)) throw Error(`Code Error`);
 
             const url = `https://api.artifactsmmo.com/achievements/${code}`;
             const headers = {
@@ -58,15 +56,15 @@ class Achievements {
         }
     }
 
-    isValidPage(page) {
+    static #isValidPage(page) {
         return page >= 1;
     }
 
-    isValidSize(size) {
+    static #isValidSize(size) {
         return size >= 1 && size <= 10000;
     }
 
-    isValidType(type) {
+    static #isValidType(type) {
         const valid = [
             'combat_kill',
             'combat_drop',
@@ -84,7 +82,7 @@ class Achievements {
         return type === undefined || valid.includes(type);
     }
 
-    isValidCode(code) {
+    static #isValidCode(code) {
         return code.match(/^[a-zA-Z0-9_-]+$/);
     }
 }

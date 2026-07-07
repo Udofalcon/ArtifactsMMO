@@ -2,7 +2,7 @@ const StatusSchema = require('../schemas/server_details/status');
 
 class ServerDetails {
     // https://api.artifactsmmo.com/docs/#/operations/get_server_details__get
-    async GetServerDetails() {
+    static async GetServerDetails() {
         const url = `https://api.artifactsmmo.com/`;
         const headers = {
             Accept: 'application/json',

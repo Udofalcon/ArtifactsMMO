@@ -4,23 +4,25 @@ const Achievements = require('./endpoints/achievements');
 const Maps = require('./endpoints/maps');
 
 async function main() {
-    // let server_details = await new ServerDetails().GetServerDetails();
+    // let server_details = await ServerDetails.GetServerDetails();
     // console.log(server_details);
 
-    // let characters = await new MyCharacters().GetMyCharacters();
+    // let characters = await MyCharacters.GetMyCharacters();
     // console.log(characters[0]);
 
-    // let achievements = await new Achievements().GetAchievements({ size: 10000 });
+    // let achievements = await Achievements.GetAchievements({ size: 10000 });
     // console.log(achievements);
-    // let achievement = await new Achievements().GetAchievement({ code: 'professional_lumberjack' });
+    // let achievement = await Achievements.GetAchievement('professional_lumberjack');
     // console.log(achievement);
 
-    let maps = await new Maps().GetAllMaps({ size: 10000 });
-    // console.log(maps.filter(x => x.access.type !== 'blocked'));
-    // console.log(maps.filter(x => x.access.conditions.length > 0).map(x => x.access.conditions));
-    // console.log(maps.filter(x => x.interactions.content).map(x => x.interactions.content));
-    // console.log(maps.filter(x => x.interactions.transition).map(x => x.interactions.transition));
-    console.log(maps.filter(x => x.interactions.transition?.conditions.length > 0).map(x => x.interactions.transition.conditions));
+    // let maps = await Maps.GetAllMaps({ hide_blocked_maps: true, size: 10000 });
+    // console.log(maps);
+    // let maps = await Maps.GetLayerMaps('interior', { hide_blocked_maps: true, size: 10000 });
+    // console.log(maps);
+    // let map = await Maps.GetMapByPosition('interior', -2, 19);
+    // console.log(map);
+    let map = await Maps.GetMapById(1236);
+    console.log(map);
 }
 
 main();
