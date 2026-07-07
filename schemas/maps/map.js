@@ -21,6 +21,8 @@ class MapSchema {
         access,
         interactions,
     }) {
+        if (!this.#isValidLayer(layer)) throw Error('Layer Error');
+
         this.map_id = map_id;
         this.name = name;
         this.skin = skin;
@@ -31,10 +33,10 @@ class MapSchema {
         this.interactions = new InteractionSchema(interactions);
     }
 
-    isValidLayer() {
+    #isValidLayer(layer) {
         const valid = [ 'interior', 'overworld', 'underground' ];
 
-        return valid.includes(this.layer);
+        return valid.includes(layer);
     }
 }
 

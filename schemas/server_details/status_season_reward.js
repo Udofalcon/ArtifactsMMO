@@ -16,6 +16,8 @@ class StatusSeasonRewardSchema {
         member_required = false,
         first_only = false,
     }) {
+        if (!this.#isValidType(type)) throw Error('Type Error');
+
         this.code = code;
         this.type = type;
         this.description = description;
@@ -25,10 +27,10 @@ class StatusSeasonRewardSchema {
         this.first_only = first_only;
     }
 
-    isValid() {
-        const validType = [ 'badge', 'skin', 'gold', 'item' ];
+    #isValidType(type) {
+        const valid = [ 'badge', 'skin', 'gold', 'item' ];
 
-        return valid.includes(this.type);
+        return valid.includes(type);
     }
 }
 

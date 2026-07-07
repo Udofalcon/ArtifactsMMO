@@ -8,15 +8,17 @@ class AchievementObjectiveSchema {
         target,
         total
     }) {
+        if (!this.#isValidType(type)) throw Error('Type Error');
+
         this.type = type;
         this.target = target || null;
         this.total = total;
     }
 
-    isValidType() {
+    #isValidType(type) {
         const valid = [ 'combat_kill', 'combat_drop', 'combat_level', 'gathering', 'crafting', 'recycling', 'task', 'other', 'use', 'npc_buy', 'npc_sell' ];
 
-        return valid.includes(this.type);
+        return valid.includes(type);
     }
 }
 

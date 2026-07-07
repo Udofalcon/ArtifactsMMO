@@ -14,6 +14,8 @@ class TransitionSchema {
         layer,
         conditions,
     }) {
+        if (!this.#isValidLayer(layer)) throw Error('Layer Error');
+
         this.map_id = map_id;
         this.x = x;
         this.y = y;
@@ -23,10 +25,10 @@ class TransitionSchema {
         }) || null;
     }
 
-    isValidLayer() {
+    #isValidLayer(layer) {
         const valid = [ 'interior', 'overworld', 'underground' ];
 
-        return valid.includes(this.layer);
+        return valid.includes(layer);
     }
 }
 

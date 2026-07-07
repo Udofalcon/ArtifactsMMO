@@ -8,16 +8,18 @@ class AccessSchema {
         type,
         conditions,
     }) {
+        if (!this.#isValidType(type)) throw Error('Type Error');
+
         this.type = type;
         this.conditions = conditions?.map(x => {
             return new ConditionSchema(x)
         }) || null;
     }
 
-    isValidType() {
+    #isValidType(type) {
         const valid = [ 'standard', 'restricted', 'conditional', 'blocked' ];
 
-        return valid.includes(this.type);
+        return valid.includes(type);
     }
 }
 
